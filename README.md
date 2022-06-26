@@ -8,13 +8,15 @@ Flutter asset syncronation is an extension to generate static variable that cont
 
 add `assets-generator-begin` comment in the begining of assets section and `assets-generator-end` in the end of section
 
+```
 assets:
-   &#35; assets-generator-begin
+   # assets-generator-begin
    - assets/audios/
    - assets/fonts/
    - assets/icons/
    - assets/images/
-   &#35; assets-generator-end
+   # assets-generator-end
+```
 
 ## Release Notes
 
@@ -31,5 +33,9 @@ Fix code style
 Add icon for visibility
 
 ### 0.0.4
+
+Fix readme.md
+
+### 0.0.5
 
 Fix readme.md

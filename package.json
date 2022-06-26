@@ -4,7 +4,7 @@
 	"description": "Flutter asset syncronation is an extension to generate static variable that contain path of your assets file, so you don't have to remember the path when you need them.",
 	"publisher": "studio-cloud",
 	"icon": "assets/images/ic_launcher.png",
-	"version": "0.0.4",
+	"version": "0.0.5",
 	"engines": {
 		"vscode": "^1.53.0"
 	},
