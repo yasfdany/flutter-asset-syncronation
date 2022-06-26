@@ -12,7 +12,7 @@ export function activate(context: vscode.ExtensionContext) {
 			  .replace( /\W+/g, ' ' )
 			  .replace( / (.)/g, function($1) { return $1.toUpperCase(); })
 			  .replace( / /g, '' );
-		  };
+		};
 
 		vscode.workspace.workspaceFolders?.map((folder) => {
 			vscode.workspace.openTextDocument(Uri.parse(folder.uri.path+"/pubspec.yaml")).then((document) => {
@@ -41,7 +41,7 @@ export function activate(context: vscode.ExtensionContext) {
 							varName = varName.replace(RegExp("_","g")," ");
 							varName = toCamelCase(varName);
 
-							fileClass += "	static final String "+varName+" = '"+path+file+"';\n";							
+							fileClass += "	static const String "+varName+" = '"+path+file+"';\n";							
 					  	});
 						fileClass += "}\n\n";
 				 	}
