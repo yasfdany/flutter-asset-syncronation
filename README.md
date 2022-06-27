@@ -9,7 +9,7 @@ Flutter asset syncronation is an extension to generate static variable that cont
 Sort your assets files according to the file types by using folder like this
 
 <p float="left">
-  <img src="./assets/screenshots/folder_path.jpg" width="200px">
+  <img src="https://raw.githubusercontent.com/yasfdany/flutter-asset-syncronation/master/assets/screenshots/folder_path.jpg" width="160px">
 </p>
 
 add `# assets-generator-begin` comment in the begining of assets section and `# assets-generator-end` in the end of section of the `pubspec.yaml` file, don't forget to save the `pubspec.yaml` for automatically update the project or do it manually by run `flutter pub get` on the terminal.
