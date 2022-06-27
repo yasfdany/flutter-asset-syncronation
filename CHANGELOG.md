@@ -1,9 +1,5 @@
-# Change Log
+### 1.0.0
 
-All notable changes to the "asset-syncronation" extension will be documented in this file.
-
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
-
-## [Unreleased]
-
-- Initial release
+- Stable Release
+- Generate `r.dart` file automatically everytime there's file added/removed/updated
+- Update instruction in README.MD
