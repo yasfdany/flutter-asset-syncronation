@@ -18,40 +18,42 @@ function generateClass(){
 
 			var matches = text.match(/(- assets\/)(.*)/g);
 
-			let paths = [];
-			matches.forEach(path => {
-				paths.push(path.trim().replace("- ",""));
-			});
+			if(matches){
+				let paths: string[] = [];
+				matches.forEach(path => {
+					paths.push(path.trim().replace("- ",""));
+				});
 
-			let fileClass = "";
-			
-			paths.forEach(path => {
-					let splittedPath = path.split("/");
-					let className = splittedPath[splittedPath.length - 2];
-					className = className.replace(/(\w)(\w*)/g,function(_,g1,g2){return g1.toUpperCase() + g2.toLowerCase();});
+				let fileClass = "";
 
-					if(fs.existsSync(folder.uri.path+"/"+path)){
-						fileClass += "class Asset"+className+" {\n";
-						fs.readdirSync(folder.uri.path+"/"+path).forEach(file => {
-							let splittedFilePath = file.split("/");
-							let varName = splittedFilePath[splittedFilePath.length -1].split(".")[0];
-							varName = varName.replace(RegExp("_","g")," ");
-							varName = toCamelCase(varName);
-	
-							fileClass += "	static const String "+varName+" = '"+path+file+"';\n";							
-						});
-						fileClass += "}\n\n";
+				paths.forEach(path => {
+						let splittedPath = path.split("/");
+						let className = splittedPath[splittedPath.length - 2];
+						className = className.replace(/(\w)(\w*)/g,function(_:string,g1:string,g2:string){return g1.toUpperCase() + g2.toLowerCase();});
+
+						if(fs.existsSync(folder.uri.path+"/"+path)){
+							fileClass += "class Asset"+className+" {\n";
+							fs.readdirSync(folder.uri.path+"/"+path).forEach(file => {
+								let splittedFilePath = file.split("/");
+								let varName = splittedFilePath[splittedFilePath.length -1].split(".")[0];
+								varName = varName.replace(RegExp("_","g")," ");
+								varName = toCamelCase(varName);
+							
+								fileClass += "	static const String "+varName+" = '"+path+file+"';\n";							
+							});
+							fileClass += "}\n\n";
+						}
+					 }
+				);
+
+				fs.writeFile(folder.uri.path+"/lib/r.dart",fileClass,function(err) {
+					if (err) {
+						vscode.window.showInformationMessage(err.message);
+						return console.error(err);
 					}
-				 }
-			);
-
-			fs.writeFile(folder.uri.path+"/lib/r.dart",fileClass,function(err) {
-				if (err) {
-					vscode.window.showInformationMessage(err.message);
-					return console.error(err);
-				}
-				vscode.window.showInformationMessage("Asset class succesfully updated!");
-			});
+					vscode.window.showInformationMessage("Asset class succesfully updated!");
+				});
+			}
 		  });
 	});
 }
