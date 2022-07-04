@@ -1,4 +1,4 @@
-# asset-syncronation README
+# Flutter Asset Syncronation
 
 <p float="left">
   <img src="https://raw.githubusercontent.com/yasfdany/flutter-asset-syncronation/master/assets/screenshots/preview.gif">
