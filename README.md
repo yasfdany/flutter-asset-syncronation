@@ -44,7 +44,7 @@ After that you just need to import `r.dart` file, and access the static variable
 You can customize the file name and folder path in extension tab on workspace setting, or you can simply search it with keyword Flutter Asset Syncronation
 
 <p float="left">
-  <img src="assets/screenshots/workspace_setting.jpg" width="160px">
+  <img src="https://raw.githubusercontent.com/yasfdany/flutter-asset-syncronation/master/assets/screenshots/workspace_setting.jpg">
 </p>
 
 ## Release Notes
