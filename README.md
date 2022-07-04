@@ -1,7 +1,7 @@
 # asset-syncronation README
 
 <p float="left">
-  <img src="assets/screenshots/preview.gif">
+  <img src="https://raw.githubusercontent.com/yasfdany/flutter-asset-syncronation/master/assets/screenshots/preview.gif">
 </p>
 
 ## Features
