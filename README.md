@@ -41,14 +41,24 @@ class AssetFonts {
 
 After that you just need to import `r.dart` file, and access the static variable like usual.
 
+You can customize the file name and folder path in extension tab on workspace setting, or you can simply search it with keyword Flutter Asset Syncronation
+
+<p float="left">
+  <img src="assets/screenshots/workspace_setting.jpg" width="160px">
+</p>
+
 ## Release Notes
+
+### 1.0.1
+
+- Setting feature for change the class name and folder path
+
+### 1.0.1
+
+- Automatically find asset folders without comment tagging
 
 ### 1.0.0
 
 - Stable Release
 - Generate `r.dart` file automatically everytime there's file added/removed/updated
 - Update instruction in README.MD
-
-### 1.0.1
-
-- Automatically find asset folders without comment tagging

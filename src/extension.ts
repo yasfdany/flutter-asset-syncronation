@@ -12,6 +12,11 @@ function generateClass(){
 	};
 
 	vscode.workspace.workspaceFolders?.map((folder) => {
+		const configuration = vscode.workspace.getConfiguration();
+		const fileName = configuration.get('fas.fileName').string;
+		const folderPath = configuration.get('fas.folderPath').string;
+		console.log(folderPath);
+		
 		vscode.workspace.openTextDocument(Uri.parse(folder.uri.path+"/pubspec.yaml")).then((document) => {
 			let text = document.getText();
 			let texts = text.split("\n");
@@ -46,13 +51,19 @@ function generateClass(){
 					 }
 				);
 
-				fs.writeFile(folder.uri.path+"/lib/r.dart",fileClass,function(err) {
-					if (err) {
-						vscode.window.showInformationMessage(err.message);
-						return console.error(err);
-					}
-					vscode.window.showInformationMessage("Asset class succesfully updated!");
-				});
+				console.log(folder.uri.path+`${folderPath}`);
+
+				if(fs.existsSync(folder.uri.path+`${folderPath}`)){
+					fs.writeFile(folder.uri.path+`${folderPath}${fileName}`,fileClass,function(err) {
+						if (err) {
+							vscode.window.showInformationMessage(err.message);
+							return console.error(err);
+						}
+						vscode.window.showInformationMessage("Asset class succesfully updated!");
+					});	
+				} else {
+					vscode.window.showErrorMessage("Folder not found");
+				}
 			}
 		  });
 	});

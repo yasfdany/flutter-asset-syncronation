@@ -4,7 +4,7 @@
 	"description": "Flutter asset syncronation is an extension to generate static variable that contain path of your assets file, so you don't have to remember the path when you need them.",
 	"publisher": "studio-cloud",
 	"icon": "assets/images/ic_launcher.png",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"engines": {
 		"vscode": "^1.53.0"
 	},
@@ -36,5 +36,22 @@
 		"mocha": "^8.2.1",
 		"typescript": "^4.1.3",
 		"vscode-test": "^1.5.0"
-	}
+	},
+	"contributes": {
+		"configuration": {
+		  "title": "Flutter Asset Syncronation",
+		  "properties": {
+			"fas.fileName.string": {
+			  "type": "string",
+			  "default": "r.dart",
+			  "description": "File name of containing the static variables r.dart is default file name"
+			},
+			"fas.folderPath.string": {
+			  "type": "string",
+			  "default": "/lib/",
+			  "markdownDescription": "Folder location to put the static variable class file. Always start and end the path folder location with /"
+			}
+		  }
+		}
+	  }
 }
