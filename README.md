@@ -1,5 +1,9 @@
 # asset-syncronation README
 
+<p float="left">
+  <img src="assets/screenshots/preview.gif">
+</p>
+
 ## Features
 
 Flutter asset syncronation is an extension to generate static variable that contain path of your assets file, so you don't have to remember the path when you need them.
