@@ -8,6 +8,8 @@
 
 Flutter asset syncronation is an extension to generate static variable that contain path of your assets file, so you don't have to remember the path when you need them.
 
+[Github Repository](https://github.com/yasfdany/flutter-asset-syncronation)
+
 ## Usage
 
 Sort your assets files according to the file types by using folder like this
