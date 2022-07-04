@@ -13,9 +13,8 @@ function generateClass(){
 
 	vscode.workspace.workspaceFolders?.map((folder) => {
 		const configuration = vscode.workspace.getConfiguration();
-		const fileName = configuration.get('fas.fileName').string;
-		const folderPath = configuration.get('fas.folderPath').string;
-		console.log(folderPath);
+		const fileName: string = configuration.get<any>('fas.fileName').string;
+		const folderPath: string = configuration.get<any>('fas.folderPath').string;
 		
 		vscode.workspace.openTextDocument(Uri.parse(folder.uri.path+"/pubspec.yaml")).then((document) => {
 			let text = document.getText();
