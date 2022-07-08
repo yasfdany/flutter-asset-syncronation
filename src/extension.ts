@@ -2,7 +2,7 @@ import * as vscode from 'vscode';
 import * as fs from "fs";   
 import { Uri } from 'vscode';
 
-function generateClass(){
+const generateClass = () => {
 	var toCamelCase = function(str : string) {
 		return str.toLowerCase()
 		  .replace( /['"]/g, '' )
@@ -38,12 +38,15 @@ function generateClass(){
 						if(fs.existsSync(folder.uri.path+"/"+path)){
 							fileClass += "class Asset"+className+" {\n";
 							fs.readdirSync(folder.uri.path+"/"+path).forEach(file => {
-								let splittedFilePath = file.split("/");
-								let varName = splittedFilePath[splittedFilePath.length -1].split(".")[0];
-								varName = varName.replace(RegExp("_","g")," ");
-								varName = toCamelCase(varName);
-							
-								fileClass += "	static const String "+varName+" = '"+path+file+"';\n";							
+								// Check if it a file or folder, if folder ignore it
+								if(fs.lstatSync(folder.uri.path+"/"+path+file).isFile()){
+									let splittedFilePath = file.split("/");
+									let varName = splittedFilePath[splittedFilePath.length -1].split(".")[0];
+									varName = varName.replace(RegExp("_","g")," ");
+									varName = toCamelCase(varName);
+								
+									fileClass += "	static const String "+varName+" = '"+path+file+"';\n";								
+								}
 							});
 							fileClass += "}\n\n";
 						}
@@ -66,9 +69,9 @@ function generateClass(){
 			}
 		  });
 	});
-}
+};
 
-export function activate(context: vscode.ExtensionContext) {
+export const activate = (context: vscode.ExtensionContext) => {
 	console.log('Congratulations, your extension "asset-syncronation" is now active!');
 	let folders = vscode.workspace.workspaceFolders;
 	if(folders){
@@ -77,6 +80,6 @@ export function activate(context: vscode.ExtensionContext) {
 		watcher.onDidCreate(uri => generateClass());
 		watcher.onDidDelete(uri => generateClass());
 	}
-}
+};
 
-export function deactivate() {}
+export const deactivate = () => {};

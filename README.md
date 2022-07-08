@@ -55,7 +55,11 @@ You can customize the file name and folder path in extension tab on workspace se
 
 ## Release Notes
 
-### 1.0.1
+### 1.0.3
+
+- Ignore sub-folder for declaring resolution-aware image assets, so it will not registered as a variable
+
+### 1.0.2
 
 - Setting feature for change the class name and folder path
 
